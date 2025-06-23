@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Assets pour les formulaires -->
+    <template id="assets_form" name="Gestion Comptable SFEC Form Assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <!-- Styles CSS spécifiques aux formulaires -->
+            <link rel="stylesheet" href="/gestion_comptable_sfec/static/src/css/form_styles.css"/>
+            
+            <!-- Animations -->
+            <link rel="stylesheet" href="/gestion_comptable_sfec/static/src/css/animations.css"/>
+            
+            <!-- Polices -->
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+            
+            <!-- Scripts JavaScript -->
+            <script type="text/javascript" src="/gestion_comptable_sfec/static/src/js/form_interactions.js"/>
+        </xpath>
+    </template>
+
+    <!-- Templates pour les composants de formulaire -->
+    <template id="form_components">
+        <!-- Composant de message de statut -->
+        <t t-name="form.status_message">
+            <div class="status-message" t-att-class="widget.status_type">
+                <span class="status-icon">
+                    <t t-if="widget.status_type === 'success'">
+                        <i class="fa fa-check-circle"/>
+                    </t>
+                    <t t-if="widget.status_type === 'warning'">
+                        <i class="fa fa-exclamation-triangle"/>
+                    </t>
+                    <t t-if="widget.status_type === 'error'">
+                        <i class="fa fa-times-circle"/>
+                    </t>
+                </span>
+                <span class="status-text" t-esc="widget.message"/>
+            </div>
+        </t>
+
+        <!-- Composant de champ de formulaire -->
+        <t t-name="form.form_field">
+            <div class="form-field">
+                <label t-esc="widget.label"/>
+                <input type="text" t-att-name="widget.name" t-att-class="widget.classes" t-att-value="widget.value"/>
+                <div class="validation-message" t-esc="widget.validation_message"/>
+            </div>
+        </t>
+
+        <!-- Composant de bouton d'action -->
+        <t t-name="form.action_button">
+            <button class="neumorphic-btn" t-att-name="widget.name" t-att-type="widget.type">
+                <i t-att-class="widget.icon"/>
+                <span t-esc="widget.label"/>
+            </button>
+        </t>
+    </template>
+</odoo>

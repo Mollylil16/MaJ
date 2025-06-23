@@ -1,0 +1,16 @@
+<odoo>
+    <template id="report_facture_finale_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="facture">
+                <div class="page">
+                    <h2>Facture Finale - <t t-esc="facture.name"/></h2>
+                    <p><strong>Date :</strong> <t t-esc="facture.date_facture"/></p>
+                    <p><strong>Client :</strong> <t t-esc="facture.client_id.name"/></p>
+                    <p><strong>Montant total :</strong> <t t-esc="facture.montant_total"/> FCFA</p>
+                    <p><strong>Statut :</strong> <t t-esc="facture.statut"/></p>
+                    <p><strong>Notes :</strong> <t t-esc="facture.notes"/></p>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

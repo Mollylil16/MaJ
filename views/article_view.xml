@@ -1,0 +1,48 @@
+<odoo>
+    <record id="view_form_article" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.article.form</field>
+        <field name="model">gestion_comptable_sfec.article</field>
+        <field name="arch" type="xml">
+            <form string="Article">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="reference"/>
+                        <field name="description" widget="custom_tags"/>
+                        <field name="quantite_stock"/>
+                        <field name="unite"/>
+                        <field name="prix_achat"/>
+                        <field name="prix_vente"/>
+                        <field name="disponible"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_article" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.article.tree</field>
+        <field name="model">gestion_comptable_sfec.article</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="reference"/>
+                <field name="quantite_stock"/>
+                <field name="unite"/>
+                <field name="prix_vente"/>
+                <field name="disponible"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_article" model="ir.actions.act_window">
+        <field name="name">Articles</field>
+        <field name="res_model">gestion_comptable_sfec.article</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_custom_article"
+              name="Articles"
+              parent="gestion_comptable_sfec.menu_gestion_comptable_sfec"
+              action="action_article"/>
+</odoo>

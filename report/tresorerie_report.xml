@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Rapport de trésorerie -->
+    <record id="action_report_tresorerie" model="ir.actions.act_window">
+        <field name="name">Rapport de Trésorerie</field>
+        <field name="res_model">custom.accounting.tresorerie.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_tresorerie_report_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Vue formulaire pour le rapport de trésorerie -->
+    <record id="view_tresorerie_report_form" model="ir.ui.view">
+        <field name="name">custom.accounting.tresorerie.report.form</field>
+        <field name="model">custom.accounting.tresorerie.report</field>
+        <field name="arch" type="xml">
+            <form string="Rapport de Trésorerie">
+                <sheet>
+                    <group>
+                        <field name="date_debut"/>
+                        <field name="date_fin"/>
+                        <field name="company_id"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Imprimer" type="object" name="print_report" class="btn-primary"/>
+                    <button string="Annuler" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menu pour le rapport de trésorerie -->
+    <menuitem id="menu_report_tresorerie"
+              name="Rapports de Trésorerie"
+              parent="menu_custom.accounting"
+              action="action_report_tresorerie"
+              sequence="10"/>
+</odoo>

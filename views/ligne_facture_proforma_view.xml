@@ -1,0 +1,31 @@
+<odoo>
+    <record id="view_ligne_facture_proforma_form" model="ir.ui.view">
+        <field name="name">ligne.facture.proforma.form</field>
+        <field name="model">gestion_comptable_sfec.ligne_facture_proforma</field>
+        <field name="arch" type="xml">
+            <form string="Ligne de facture proforma">
+                <sheet>
+                    <group>
+                        <field name="article_id"/>
+                        <field name="quantite"/>
+                        <field name="prix_unitaire"/>
+                        <field name="total"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ligne_facture_proforma_tree" model="ir.ui.view">
+        <field name="name">ligne.facture.proforma.tree</field>
+        <field name="model">gestion_comptable_sfec.ligne_facture_proforma</field>
+        <field name="arch" type="xml">
+            <tree string="Lignes de facture proforma">
+                <field name="article_id"/>
+                <field name="quantite"/>
+                <field name="prix_unitaire"/>
+                <field name="total"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

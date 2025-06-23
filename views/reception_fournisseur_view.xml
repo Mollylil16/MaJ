@@ -1,0 +1,45 @@
+<odoo>
+    <record id="view_reception_fournisseur_form" model="ir.ui.view">
+        <field name="name">reception.fournisseur.form</field>
+        <field name="model">gestion_comptable_sfec.reception_fournisseur</field>
+        <field name="arch" type="xml">
+            <form string="Réception fournisseur">
+                <sheet>
+                    <group>
+                        <field name="bon_commande_id"/>
+                        <field name="date_reception"/>
+                        <field name="notes"/>
+                    </group>
+                    <field name="reception_ligne_ids">
+                        <tree editable="bottom">
+                            <field name="article_id"/>
+                            <field name="quantite_recue"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_reception_fournisseur_tree" model="ir.ui.view">
+        <field name="name">reception.fournisseur.tree</field>
+        <field name="model">gestion_comptable_sfec.reception_fournisseur</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="bon_commande_id"/>
+                <field name="date_reception"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_reception_fournisseur" model="ir.actions.act_window">
+        <field name="name">Réceptions fournisseurs</field>
+        <field name="res_model">gestion_comptable_sfec.reception_fournisseur</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_reception_fournisseur"
+              name="Réceptions"
+              parent="menu_custom_fournisseur"
+              action="action_reception_fournisseur"/>
+</odoo>

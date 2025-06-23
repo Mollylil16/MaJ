@@ -1,0 +1,50 @@
+<odoo>
+    <record id="view_bon_commande_fournisseur_form" model="ir.ui.view">
+        <field name="name">bon.commande.fournisseur.form</field>
+        <field name="model">gestion_comptable_sfec.bon_commande_fournisseur</field>
+        <field name="arch" type="xml">
+            <form string="Bon de commande fournisseur">
+                <sheet>
+                    <group>
+                        <field name="reference"/>
+                        <field name="fournisseur_id"/>
+                        <field name="date_commande"/>
+                        <field name="etat"/>
+                    </group>
+                    <field name="ligne_commande_ids">
+                        <tree editable="bottom">
+                            <field name="article_id"/>
+                            <field name="quantite"/>
+                            <field name="prix_unitaire"/>
+                            <field name="total"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_bon_commande_fournisseur_tree" model="ir.ui.view">
+        <field name="name">bon.commande.fournisseur.tree</field>
+        <field name="model">gestion_comptable_sfec.bon_commande_fournisseur</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="reference"/>
+                <field name="fournisseur_id"/>
+                <field name="date_commande"/>
+                <field name="etat"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_bon_commande_fournisseur" model="ir.actions.act_window">
+        <field name="name">Bons de commande fournisseurs</field>
+        <field name="res_model">gestion_comptable_sfec.bon_commande_fournisseur</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_bon_commande_fournisseur"
+              name="Commandes Fournisseurs"
+              parent="menu_custom_fournisseur"
+              action="action_bon_commande_fournisseur"/>
+</odoo>

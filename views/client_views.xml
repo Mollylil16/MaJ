@@ -1,0 +1,70 @@
+<odoo>
+    <record id="view_custom_client_form" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.client.form</field>
+        <field name="model">gestion_comptable_sfec.client</field>
+        <field name="arch" type="xml">
+            <form class="neumorphic">
+                <sheet>
+                    <div class="neumorphic-header">
+                        <h2>Informations Client</h2>
+                    </div>
+                    <group>
+                        <field name="name" class="neumorphic-input"/>
+                        <field name="entreprise_id" widget="custom_tags" class="neumorphic-input"/>
+                        <field name="address" widget="custom_tags" class="neumorphic-input"/>
+                        <field name="lcc_number" class="neumorphic-input"/>
+                        <field name="phone" class="neumorphic-input"/>
+                        <field name="email" class="neumorphic-input"/>
+                        <field name="parent_id" class="neumorphic-input"/>
+                        <field name="street" class="neumorphic-input"/>
+                    </group>
+                    <group string="Statistiques de paiement">
+                        <field name="total_paiements" readonly="1" class="neumorphic-input"/>
+                        <field name="nombre_paiements" readonly="1" class="neumorphic-input"/>
+                    </group>
+                    <div class="neumorphic-footer">
+                        <button class="neumorphic-btn" name="save" type="object">
+                            <span class="fa fa-save"/> Sauvegarder
+                        </button>
+                        <button class="neumorphic-btn" name="cancel" type="object">
+                            <span class="fa fa-times"/> Annuler
+                        </button>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_custom_client_tree" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.client.tree</field>
+        <field name="model">gestion_comptable_sfec.client</field>
+        <field name="arch" type="xml">
+            <tree string="Clients">
+                <field name="name"/>
+                <field name="entreprise_id"/>
+                <field name="phone"/>
+                <field name="total_paiements"/>
+                <field name="nombre_paiements"/>
+                <field name="lcc_number"/>
+                <field name="parent_id"/>
+                <field name="street"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_custom_client" model="ir.actions.act_window">
+        <field name="name">Clients</field>
+        <field name="res_model">gestion_comptable_sfec.client</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_gestion_comptable_sfec"
+              name="Gestion Comptable"
+              sequence="1"/>
+
+    <menuitem id="menu_custom_client"
+              name="Clients"
+              parent="menu_gestion_comptable_sfec"
+              action="action_custom_client"
+              sequence="2"/>
+</odoo>

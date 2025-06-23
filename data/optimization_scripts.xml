@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Script d'optimisation des séquences -->
+    <record id="optimize_sequences" model="ir.cron">
+        <field name="name">Optimisation des séquences</field>
+        <field name="model_id" ref="model_gestion_comptable_sfec_maintenance"/>
+        <field name="function">optimize_sequences</field>
+        <field name="args">[]</field>
+        <field name="interval_number">7</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- Script de vérification des contraintes -->
+    <record id="check_constraints" model="ir.cron">
+        <field name="name">Vérification des contraintes</field>
+        <field name="model_id" ref="model_gestion_comptable_sfec_maintenance"/>
+        <field name="function">check_constraints</field>
+        <field name="args">[]</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- Script de vérification des workflows -->
+    <record id="check_workflows" model="ir.cron">
+        <field name="name">Vérification des workflows</field>
+        <field name="model_id" ref="model_gestion_comptable_sfec_maintenance"/>
+        <field name="function">check_workflows</field>
+        <field name="args">[]</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- Script de vérification des emails -->
+    <record id="check_emails" model="ir.cron">
+        <field name="name">Vérification des emails</field>
+        <field name="model_id" ref="model_gestion_comptable_sfec_maintenance"/>
+        <field name="function">check_emails</field>
+        <field name="args">[]</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>

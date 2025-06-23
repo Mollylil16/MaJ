@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template pour la validation des commandes fournisseurs -->
+    <record id="email_template_validation_commande" model="mail.template">
+        <field name="name">Validation Commande Fournisseur</field>
+        <field name="model_id" ref="model_gestion_comptable_sfec_bon_commande_fournisseur"/>
+        <field name="subject">Validation automatique de votre commande</field>
+        <field name="email_from">${(object.company_id.email or user.email)|safe}</field>
+        <field name="email_to">${object.fournisseur_id.email|safe}</field>
+        <field name="email_cc">${object.company_id.email|safe}</field>
+        <field name="lang">${object.lang or object.company_id.partner_id.lang}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html">
+            <![CDATA[
+            <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+                <p>Cher ${object.fournisseur_id.name},</p>
+                <p>Votre commande ${object.name} a été automatiquement validée car vous êtes partenaire exclusif.</p>
+                <p>Détails de la commande :</p>
+                <ul>
+                    <li>Date : ${object.date_commande}</li>
+                    <li>Montant : ${object.montant_total} €</li>
+                    <li>État : ${object.state}</li>
+                    <li>Produits : ${', '.join(line.product_id.name for line in object.order_line)}</li>
+                </ul>
+                <p>Vous pouvez consulter les détails de votre commande dans votre espace client.</p>
+                <p>Cordialement,</p>
+                <p>L'équipe SFEC</p>
+            </div>
+            ]]>
+        </field>
+    </record>
+
+    <!-- Template pour les relances clients -->
+    <record id="email_template_relance_client" model="mail.template">
+        <field name="name">Relance Client</field>
+        <field name="model_id" ref="model_gestion_comptable_sfec_facture_finale"/>
+        <field name="subject">Relance de paiement - Facture ${object.name}</field>
+        <field name="email_from">${(object.company_id.email or user.email)|safe}</field>
+        <field name="email_to">${object.client_id.email|safe}</field>
+        <field name="email_cc">${object.company_id.email|safe}</field>
+        <field name="lang">${object.lang or object.company_id.partner_id.lang}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="body_html">
+            <![CDATA[
+            <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+                <p>Cher ${object.client_id.name},</p>
+                <p>Nous vous rappelons que votre facture ${object.name} est encore en attente de paiement.</p>
+                <p>Détails de la facture :</p>
+                <ul>
+                    <li>Date : ${object.date_facture}</li>
+                    <li>Montant : ${object.montant_total} €</li>
+                    <li>Date d'échéance : ${object.date_echeance}</li>
+                    <li>État : ${object.state}</li>
+                    <li>Produits : ${', '.join(line.product_id.name for line in object.invoice_line_ids)}</li>
+                </ul>
+                <p>Nous vous remercions de bien vouloir procéder au paiement dans les plus brefs délais.</p>
+                <p>Cordialement,</p>
+                <p>L'équipe SFEC</p>
+            </div>
+            ]]>
+        </field>
+    </record>
+
+    <!-- Template pour les alertes stock -->
+    <record id="email_template_alerte_stock" model="mail.template">
+        <field name="name">Alerte Stock</field>
+        <field name="model_id" ref="model_gestion_comptable_sfec_article"/>
+        <field name="subject">Alerte Stock - ${object.name}</field>
+        <field name="email_from">${(object.company_id.email or user.email)|safe}</field>
+        <field name="email_to">${object.responsable_id.email|safe}</field>
+        <field name="body_html">
+            <![CDATA[
+            <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+                <p>Alerte Stock pour l'article ${object.name} (${object.reference})</p>
+                <p>Le stock est en dessous du seuil minimum (${object.seuil_min} unités)</p>
+                <p>Stock actuel : ${object.qty_available} unités</p>
+                <p>Nous vous recommandons de lancer une nouvelle commande auprès du fournisseur.</p>
+                <p>Cordialement,</p>
+                <p>L'équipe SFEC</p>
+            </div>
+            ]]>
+        </field>
+    </record>
+
+    <!-- Template Accusé Réception Client -->
+    <record id="email_template_reception_client" model="mail.template">
+        <field name="name">Accusé Réception Client</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="subject">Accusé réception commande ${object.name}</field>
+        <field name="body_html">
+            <![CDATA[
+            <p>Bonjour ${object.partner_id.name},</p>
+            <p>Votre commande <strong>${object.name}</strong> a bien été reçue.</p>
+            <p>Référence client : <strong>${object.partner_id.lcc_number or 'Non renseigné'}</strong></p>
+            ${object.note and f'<p>Notes : {object.note}</p>' or ''}
+            ]]>
+        </field>
+    </record>
+
+    <!-- Template Demande Fournisseur -->
+    <record id="email_template_demande_fournisseur" model="mail.template">
+        <field name="name">Demande Fournisseur</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="subject">[DEMANDE] ${object.partner_id.name} - ${object.name}</field>
+        <field name="body_html">
+            <![CDATA[
+            <p>Bonjour ${object.partner_id.name},</p>
+            <p>Veuillez trouver notre demande officielle :</p>
+            <ul>
+                <li>Référence : ${object.name}</li>
+                <li>Articles demandés : ${len(object.order_line)}</li>
+            </ul>
+            ]]>
+        </field>
+    </record>
+
+    <!-- Template Partenaires Exclusifs -->
+    <record id="email_template_partenaires_exclusifs" model="mail.template">
+        <field name="name">Notification Partenaire Exclusif</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="subject">[EXCLUSIF] Nouvelle commande ${object.name}</field>
+        <field name="body_html">
+            <![CDATA[
+            <p>Partenaire exclusif ${object.name},</p>
+            <p>Priorité donnée à votre offre conformément à notre accord.</p>
+            ]]>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,64 @@
+<odoo>
+    <record id="view_form_fournisseur" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.fournisseur.form</field>
+        <field name="model">gestion_comptable_sfec.fournisseur</field>
+        <field name="arch" type="xml">
+            <form class="neumorphic">
+                <sheet>
+                    <div class="neumorphic-header">
+                        <h2>Informations Fournisseur</h2>
+                        <div class="fournisseur-status">
+                            <span class="status-label">Statut :</span>
+                            <span class="status-value" t-esc="widget.status"/>
+                        </div>
+                    </div>
+                    <group>
+                        <field name="name" class="neumorphic-input"/>
+                        <field name="entreprise" widget="custom_tags" class="neumorphic-input"/>
+                        <field name="email" class="neumorphic-input"/>
+                        <field name="phone" class="neumorphic-input"/>
+                        <field name="address" widget="custom_tags" class="neumorphic-input"/>
+                    </group>
+                    <group string="Statistiques de paiement">
+                        <field name="total_paiements" readonly="1" class="neumorphic-input"/>
+                        <field name="nombre_paiements" readonly="1" class="neumorphic-input"/>
+                    </group>
+                    <div class="neumorphic-footer">
+                        <button class="neumorphic-btn" name="save" type="object">
+                            <span class="fa fa-save"/> Sauvegarder
+                        </button>
+                        <button class="neumorphic-btn" name="cancel" type="object">
+                            <span class="fa fa-times"/> Annuler
+                        </button>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_fournisseur" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.fournisseur.tree</field>
+        <field name="model">gestion_comptable_sfec.fournisseur</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="entreprise"/>
+                <field name="phone"/>
+                <field name="total_paiements"/>
+                <field name="nombre_paiements"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_fournisseur" model="ir.actions.act_window">
+        <field name="name">Fournisseurs</field>
+        <field name="res_model">gestion_comptable_sfec.fournisseur</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_custom_fournisseur"
+              name="Fournisseurs"
+              parent="menu_gestion_comptable_sfec"
+              action="action_fournisseur"
+              sequence="3"/>
+</odoo>

@@ -1,0 +1,93 @@
+<odoo>
+    <!-- FORM -->
+    <record id="view_facture_finale_form" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.facture_finale.form</field>
+        <field name="model">gestion_comptable_sfec.facture_finale</field>
+        <field name="arch" type="xml">
+            <form class="neumorphic">
+                <sheet>
+                    <div class="neumorphic-header">
+                        <h2>Facture ${widget.name}</h2>
+                        <div class="facture-status">
+                            <span class="status-label">Statut :</span>
+                            <span class="status-value" t-esc="widget.etat"/>
+                            <span class="status-date">${widget.date_facture}</span>
+                        </div>
+                    </div>
+                    <group>
+                        <field name="client_id" class="neumorphic-input"/>
+                        <field name="date_facture" class="neumorphic-input"/>
+                        <field name="montant_total" class="neumorphic-input"/>
+                        <field name="date_echeance" class="neumorphic-input"/>
+                        <field name="etat" class="neumorphic-input"/>
+                    </group>
+                    <div class="neumorphic-footer">
+                        <button class="neumorphic-btn" name="save" type="object">
+                            <span class="fa fa-save"/> Sauvegarder
+                        </button>
+                        <button class="neumorphic-btn" name="cancel" type="object">
+                            <span class="fa fa-times"/> Annuler
+                        </button>
+                        <button class="neumorphic-btn" name="action_valider" type="object" attrs="{'invisible': [('etat', '!=', 'brouillon')]}">
+                            <span class="fa fa-check"/> Valider
+                        </button>
+                        <button class="neumorphic-btn" name="action_imprimer" type="object">
+                            <span class="fa fa-print"/> Imprimer
+                        </button>
+                        <button name="marquer_comme_payee"
+                                type="object"
+                                string="Marquer comme payée"
+                                class="btn-primary"
+                                attrs="{'invisible': [('statut', '=', 'payee')]}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- TREE -->
+    <record id="view_tree_facture_finale" model="ir.ui.view">
+        <field name="name">facture.finale.tree</field>
+        <field name="model">gestion_comptable_sfec.facture_finale</field>
+        <field name="arch" type="xml">
+            <tree string="Factures Finales">
+                <field name="name"/>
+                <field name="client_id"/>
+                <field name="date_facture"/>
+                <field name="montant_total"/>
+                <field name="statut"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- SEARCH (filtres dynamiques) -->
+    <record id="view_search_facture_finale" model="ir.ui.view">
+        <field name="name">facture.finale.search</field>
+        <field name="model">gestion_comptable_sfec.facture_finale</field>
+        <field name="arch" type="xml">
+            <search string="Recherche Factures">
+                <field name="name" string="Référence"/>
+                <field name="client_id"/>
+                <field name="statut"/>
+
+                <filter name="filtre_en_attente" string="En attente" domain="[('statut','=','en_attente')]"/>
+                <filter name="filtre_payee" string="Payée" domain="[('statut','=','payee')]"/>
+                <filter name="filtre_partielle" string="Partiellement payée" domain="[('statut','=','partiellement_payee')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- ACTION -->
+    <record id="action_facture_finale" model="ir.actions.act_window">
+        <field name="name">Factures Finales</field>
+        <field name="res_model">gestion_comptable_sfec.facture_finale</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_search_facture_finale"/>
+    </record>
+
+    <!-- MENU -->
+    <menuitem id="menu_facture_finale"
+              name="Factures Finales"
+              parent="gestion_comptable_sfec_root"
+              action="action_facture_finale"/>
+</odoo>

@@ -1,0 +1,24 @@
+<odoo>
+    <menuitem id="menu_gestion_comptable_root" name="Gestion Comptable" sequence="1" groups="gestion_comptable_sfec.group_comptable,gestion_comptable_sfec.group_manager"/>
+
+    <!-- 1. MENU CLIENT -->
+    <menuitem id="menu_custom_client_root" name="Clients" parent="menu_gestion_comptable_root" sequence="10"/>
+    <menuitem id="menu_custom_entreprise" name="Entreprises" parent="menu_custom_client_root" action="action_entreprise"/>
+    <menuitem id="custom_client_menu" name="Clients" parent="menu_custom_client_root" action="action_custom_client"/>
+    <menuitem id="menu_bon_commande_client" name="Bons de commande" parent="menu_custom_client_root" action="action_bon_commande_client"/>
+    <menuitem id="menu_facture_proforma" name="Factures proforma" parent="menu_custom_client_root" action="action_facture_proforma"/>
+    <menuitem id="menu_accuse_reception" name="Accusés de réception" parent="menu_custom_client_root" action="action_accuse_reception"/>
+    <menuitem id="menu_facture_finale" name="Factures finales" parent="menu_custom_client_root" action="action_facture_finale"/>
+    <menuitem id="menu_paiement_client" name="Paiements reçus" parent="menu_custom_client_root" action="action_paiement_client"/>
+
+    <!-- 2. MENU FOURNISSEUR -->
+    <menuitem id="menu_custom_fournisseur" name="Fournisseurs" parent="menu_gestion_comptable_root" sequence="20"/>
+    <menuitem id="menu_fournisseur" name="Liste des fournisseurs" parent="menu_custom_fournisseur" action="action_fournisseur"/>
+    <menuitem id="menu_bon_commande_fournisseur" name="Bons de commande fournisseurs" parent="menu_custom_fournisseur" action="action_bon_commande_fournisseur"/>
+    <menuitem id="menu_facture_fournisseur" name="Factures fournisseurs" parent="menu_custom_fournisseur" action="action_facture_fournisseur"/>
+    <menuitem id="menu_paiement_fournisseur" name="Paiements" parent="menu_custom_fournisseur" action="action_paiement_fournisseur"/>
+
+    <!-- 3. MENU STOCK -->
+    <menuitem id="menu_custom_stock" name="Stock" parent="menu_gestion_comptable_root" sequence="30"/>
+    <menuitem id="menu_custom_article" name="Articles" parent="menu_custom_stock" action="action_article"/>
+</odoo>

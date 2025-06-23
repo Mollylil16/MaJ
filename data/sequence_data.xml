@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Séquence pour les partenariats exclusifs -->
+    <record id="seq_partenariat_exclusif" model="ir.sequence">
+        <field name="name">Partenariat Exclusif</field>
+        <field name="code">gestion_comptable_sfec.partenariat_exclusif</field>
+        <field name="prefix">PRT/%(year)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+        <field name="use_date_range" eval="True"/>
+    </record>
+
+    <!-- Séquence pour les accusés de réception -->
+    <record id="seq_accuse_reception" model="ir.sequence">
+        <field name="name">Accusé Réception</field>
+        <field name="code">gestion_comptable_sfec.accuse_reception</field>
+        <field name="prefix">ACR/%(year)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+        <field name="use_date_range" eval="True"/>
+    </record>
+
+    <!-- Séquence pour les notifications -->
+    <record id="seq_notification" model="ir.sequence">
+        <field name="name">Notification</field>
+        <field name="code">gestion_comptable_sfec.notification</field>
+        <field name="prefix">NOT/%(year)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+        <field name="use_date_range" eval="True"/>
+    </record>
+
+    <!-- Séquence pour les relances -->
+    <record id="seq_relance" model="ir.sequence">
+        <field name="name">Relance</field>
+        <field name="code">gestion_comptable_sfec.relance</field>
+        <field name="prefix">RLC/%(year)s/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+        <field name="use_date_range" eval="True"/>
+    </record>
+</odoo>
