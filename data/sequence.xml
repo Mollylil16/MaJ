@@ -12,9 +12,8 @@
         <record id="seq_facture_proforma" model="ir.sequence">
             <field name="name">Facture Proforma</field>
             <field name="code">gestion_comptable_sfec.facture_proforma</field>
-            <field name="prefix">FPF/%(year)s/</field>
+            <field name="prefix">FP/</field>
             <field name="padding">4</field>
-            <field name="number_next">1</field>
         </record>
 
         <record id="seq_facture_finale" model="ir.sequence">

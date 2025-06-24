@@ -54,13 +54,12 @@ Module Odoo personnalisé pour gérer :
     'views/entreprise_views.xml',
     'views/client_views.xml',
     'views/bon_commande_client_view.xml',
+    'views/facture_proforma_view.xml',
     'views/menu.xml',
-
     # Vues
     'views/dashboard_view.xml',
     'views/partenariat_exclusif_view.xml',
     'views/ligne_commande_client_view.xml',
-    'views/facture_proforma_view.xml',
     'views/ligne_facture_proforma_view.xml',
     'views/accuse_reception_view.xml',
     'views/facture_finale_view.xml',

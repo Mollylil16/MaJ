@@ -3,24 +3,19 @@
         <field name="name">facture.proforma.form</field>
         <field name="model">gestion_comptable_sfec.facture_proforma</field>
         <field name="arch" type="xml">
-            <form string="Facture Proforma" class="neumorphic">
+            <form string="Facture Proforma">
                 <sheet>
                     <group>
-                        <field name="commande_id" class="neumorphic-input"/>
-                        <field name="date_facture" class="neumorphic-input"/>
-                        <field name="etat_facture" class="neumorphic-input"/>
+                        <field name="name"/>
+                        <field name="client_id"/>
+                        <field name="bon_commande_id"/>
+                        <field name="date_proforma"/>
+                        <field name="montant_total"/>
+                        <field name="etat"/>
                     </group>
-                    <notebook>
-                        <page string="Détails">
-                            <field name="ligne_facture_ids">
-                                <tree editable="bottom">
-                                    <field name="article_id"/>
-                                    <field name="quantite"/>
-                                    <field name="prix_unitaire"/>
-                                </tree>
-                            </field>
-                        </page>
-                    </notebook>
+                    <group>
+                        <field name="commentaire"/>
+                    </group>
                 </sheet>
             </form>
         </field>
@@ -31,9 +26,11 @@
         <field name="model">gestion_comptable_sfec.facture_proforma</field>
         <field name="arch" type="xml">
             <tree string="Factures proforma">
-                <field name="commande_id"/>
-                <field name="date_facture"/>
-                <field name="etat_facture"/>
+                <field name="name"/>
+                <field name="client_id"/>
+                <field name="date_proforma"/>
+                <field name="montant_total"/>
+                <field name="etat"/>
             </tree>
         </field>
     </record>

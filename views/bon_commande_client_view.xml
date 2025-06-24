@@ -9,14 +9,23 @@
                         <field name="client_id"/>
                         <field name="date_commande"/>
                         <field name="etat_commande"/>
+                        <field name="reference"/>
                     </group>
-                    <field name="article_ids">
-                        <tree editable="bottom">
-                            <field name="article_id"/>
-                            <field name="quantite"/>
-                            <field name="prix_unitaire"/>
-                        </tree>
-                    </field>
+
+                    <notebook>
+                        <page string="Lignes de commande">
+                            <field name="ligne_commande_ids">
+                                <tree editable="bottom">
+                                    <field name="article_id"/>
+                                    <field name="quantite"/>
+                                    <field name="prix_unitaire"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -30,6 +39,7 @@
                 <field name="client_id"/>
                 <field name="date_commande"/>
                 <field name="etat_commande"/>
+                <field name="reference"/>
             </tree>
         </field>
     </record>
@@ -39,9 +49,4 @@
         <field name="res_model">gestion_comptable_sfec.bon_commande_client</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <menuitem id="menu_bon_commande_client"
-          name="Commandes Client"
-          parent="menu_custom_client_root"
-          action="action_bon_commande_client"/>
 </odoo>
