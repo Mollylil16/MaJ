@@ -12,7 +12,7 @@ Module Odoo personnalisé pour gérer :
 - le volet financier (paiements par caisse, banque, crédit),
 - la traçabilité des clients et entreprises partenaires.
 """,
-    'author': 'SFEC',
+    'author': 'SFEC2',
     'website': 'https://SFEC.com',
     'support': 'support@sfec.com',
     'license': 'LGPL-3',
