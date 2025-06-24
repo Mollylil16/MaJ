@@ -1,0 +1,44 @@
+<odoo>
+    <record id="view_paiement_fournisseur_form" model="ir.ui.view">
+        <field name="name">paiement.fournisseur.form</field>
+        <field name="model">gestion_comptable_sfec.paiement_fournisseur</field>
+        <field name="arch" type="xml">
+            <form string="Paiement fournisseur">
+                <sheet>
+                    <group>
+                        <field name="facture_id"/>
+                        <field name="date_paiement"/>
+                        <field name="montant_paye"/>
+                        <field name="mode_paiement"/>
+                        <field name="reference"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_paiement_fournisseur_tree" model="ir.ui.view">
+        <field name="name">paiement.fournisseur.tree</field>
+        <field name="model">gestion_comptable_sfec.paiement_fournisseur</field>
+        <field name="arch" type="xml">
+            <tree string="Paiements fournisseurs">
+                <field name="facture_id"/>
+                <field name="date_paiement"/>
+                <field name="montant_paye"/>
+                <field name="mode_paiement"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_paiement_fournisseur" model="ir.actions.act_window">
+        <field name="name">Paiements fournisseurs</field>
+        <field name="res_model">gestion_comptable_sfec.paiement_fournisseur</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_paiement_fournisseur"
+              name="Paiements Fournisseurs"
+              parent="menu_custom_fournisseur"
+              action="action_paiement_fournisseur"
+              sequence="7"/>
+</odoo>

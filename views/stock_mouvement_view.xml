@@ -1,0 +1,44 @@
+<odoo>
+    <record id="view_form_stock_mouvement" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.stock_mouvement.form</field>
+        <field name="model">gestion_comptable_sfec.stock_mouvement</field>
+        <field name="arch" type="xml">
+            <form string="Mouvement de Stock">
+                <sheet>
+                    <group>
+                        <field name="article_id"/>
+                        <field name="type_mouvement"/>
+                        <field name="quantite"/>
+                        <field name="date_mouvement"/>
+                        <field name="note"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_stock_mouvement" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.stock_mouvement.tree</field>
+        <field name="model">gestion_comptable_sfec.stock_mouvement</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date_mouvement"/>
+                <field name="article_id"/>
+                <field name="type_mouvement"/>
+                <field name="quantite"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_stock_mouvement" model="ir.actions.act_window">
+        <field name="name">Mouvements de Stock</field>
+        <field name="res_model">gestion_comptable_sfec.stock_mouvement</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_stock_mouvement"
+              name="Mouvements de stock"
+              parent="menu_custom_article"
+              action="action_stock_mouvement"
+              sequence="15"/>
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Vue liste -->
+    <record id="view_partenariat_exclusif_tree" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.partenariat_exclusif.tree</field>
+        <field name="model">gestion_comptable_sfec.partenariat_exclusif</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="fournisseur_id"/>
+                <field name="type_partenariat"/>
+                <field name="date_debut"/>
+                <field name="date_fin"/>
+                <field name="active"/>
+                <field name="nb_commandes"/>
+                <field name="montant_total"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vue formulaire -->
+    <record id="view_partenariat_exclusif_form" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.partenariat_exclusif.form</field>
+        <field name="model">gestion_comptable_sfec.partenariat_exclusif</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="fournisseur_id"/>
+                        <field name="type_partenariat"/>
+                        <field name="date_debut"/>
+                        <field name="date_fin"/>
+                        <field name="active"/>
+                        <field name="conditions" widget="custom_tags"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action liée au modèle -->
+    <record id="action_partenariat_exclusif" model="ir.actions.act_window">
+        <field name="name">Partenariats Exclusifs</field>
+        <field name="res_model">gestion_comptable_sfec.partenariat_exclusif</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Créer un nouveau partenariat exclusif
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu unique propre et lié à l'action -->
+    <menuitem id="menu_partenariat_exclusif_root"
+              name="Partenariats Exclusifs"
+              parent="menu_gestion_comptable_root"
+              action="action_partenariat_exclusif"
+              sequence="10"/>
+
+</odoo>

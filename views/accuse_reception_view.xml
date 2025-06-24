@@ -1,0 +1,43 @@
+<odoo>
+    <record id="view_form_accuse_reception" model="ir.ui.view">
+        <field name="name">accuse.reception.form</field>
+        <field name="model">gestion_comptable_sfec.accuse_reception</field>
+        <field name="arch" type="xml">
+            <form string="Accusé de Réception">
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="client_id"/>
+                        <field name="facture_proforma_id"/>
+                        <field name="date_reception"/>
+                        <field name="remarques"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_accuse_reception" model="ir.ui.view">
+        <field name="name">accuse.reception.tree</field>
+        <field name="model">gestion_comptable_sfec.accuse_reception</field>
+        <field name="arch" type="xml">
+            <tree string="Accusés de Réception">
+                <field name="name"/>
+                <field name="client_id"/>
+                <field name="facture_proforma_id"/>
+                <field name="date_reception"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_accuse_reception" model="ir.actions.act_window">
+        <field name="name">Accusés de Réception</field>
+        <field name="res_model">gestion_comptable_sfec.accuse_reception</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_accuse_reception"
+              name="Accusés de Réception"
+              parent="gestion_comptable_sfec_root"
+              action="action_accuse_reception"/>
+</odoo>

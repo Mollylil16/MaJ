@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Assets pour le backend -->
+    <template id="assets_backend" name="Gestion Comptable SFEC Assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <!-- Styles CSS -->
+            <link rel="stylesheet" href="/gestion_comptable_sfec/static/src/css/neumorphic.css"/>
+            
+            <!-- Animations -->
+            <link rel="stylesheet" href="/gestion_comptable_sfec/static/src/css/animations.css"/>
+            
+            <!-- Polices -->
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        </xpath>
+    </template>
+
+    <!-- Assets pour le frontend -->
+    <template id="assets_frontend" name="Gestion Comptable SFEC Frontend Assets" inherit_id="web.assets_frontend">
+        <xpath expr="." position="inside">
+            <!-- Styles CSS -->
+            <link rel="stylesheet" href="/gestion_comptable_sfec/static/src/css/neumorphic.css"/>
+            
+            <!-- Animations -->
+            <link rel="stylesheet" href="/gestion_comptable_sfec/static/src/css/animations.css"/>
+            
+            <!-- Polices -->
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        </xpath>
+    </template>
+
+    <!-- Templates pour les composants -->
+    <template id="neumorphic_components">
+        <!-- Composant de notification -->
+        <t t-name="neumorphic.notification">
+            <div class="neumorphic-card notification">
+                <div class="notification-header">
+                    <span class="notification-icon" t-att-class="widget.notification_type"/>
+                    <span class="notification-title" t-esc="widget.title"/>
+                </div>
+                <div class="notification-content" t-esc="widget.message"/>
+                <div class="notification-footer">
+                    <button class="neumorphic-btn" t-on-click="widget.close">
+                        Fermer
+                    </button>
+                </div>
+            </div>
+        </t>
+
+        <!-- Composant de statistique -->
+        <t t-name="neumorphic.stat">
+            <div class="neumorphic-card stat">
+                <div class="stat-header">
+                    <span class="stat-label" t-esc="widget.label"/>
+                </div>
+                <div class="stat-value">
+                    <span class="stat-number" t-esc="widget.value"/>
+                </div>
+                <div class="stat-footer">
+                    <span class="stat-change" t-esc="widget.change"/>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

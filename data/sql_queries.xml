@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vue SQL pour les statistiques des paiements -->
+    <record id="view_paiements_stats" model="ir.model" forcecreate="True">
+        <field name="name">Statistiques des Paiements</field>
+        <field name="model">gestion_comptable_sfec.paiement.stats</field>
+        <field name="description">Vue SQL pour les statistiques des paiements</field>
+    </record>
+
+    <record id="view_paiements_stats_sql" model="ir.model.fields" forcecreate="True">
+        <field name="name">sql_view</field>
+        <field name="model_id" ref="view_paiements_stats"/>
+        <field name="field_description">Vue SQL</field>
+        <field name="ttype">sql_view</field>
+        <field name="view_id" ref="view_paiements_stats"/>
+        <field name="store">False</field>
+        <field name="readonly">True</field>
+    </record>
+
+    <record id="view_paiements_stats_query" model="ir.model.sql_view">
+        <field name="name">gestion_comptable_sfec.paiement.stats</field>
+        <field name="view_id" ref="view_paiements_stats"/>
+        <field name="sql_query">
+            SELECT
+                date_trunc('month', date_paiement) as month,
+                SUM(montant) as total,
+                COUNT(*) as count,
+                AVG(montant) as avg,
+                MIN(montant) as min,
+                MAX(montant) as max
+            FROM gestion_comptable_sfec_paiement_client
+            GROUP BY date_trunc('month', date_paiement)
+            ORDER BY date_trunc('month', date_paiement) DESC
+        </field>
+    </record>
+
+    <!-- Vue SQL pour les statistiques du stock -->
+    <record id="view_stock_stats" model="ir.model" forcecreate="True">
+        <field name="name">Statistiques du Stock</field>
+        <field name="model">gestion_comptable_sfec.stock.stats</field>
+        <field name="description">Vue SQL pour les statistiques du stock</field>
+    </record>
+
+    <record id="view_stock_stats_sql" model="ir.model.fields" forcecreate="True">
+        <field name="name">sql_view</field>
+        <field name="model_id" ref="view_stock_stats"/>
+        <field name="field_description">Vue SQL</field>
+        <field name="ttype">sql_view</field>
+        <field name="view_id" ref="view_stock_stats"/>
+        <field name="store">False</field>
+        <field name="readonly">True</field>
+    </record>
+
+    <record id="view_stock_stats_query" model="ir.model.sql_view">
+        <field name="name">gestion_comptable_sfec.stock.stats</field>
+        <field name="view_id" ref="view_stock_stats"/>
+        <field name="sql_query">
+            SELECT
+                produit_id,
+                SUM(CASE WHEN type_mouvement = 'entree' THEN quantite ELSE -quantite END) as stock_actuel,
+                MAX(date) as derniere_mouvement
+            FROM gestion_comptable_sfec_stock_mouvement
+            GROUP BY produit_id
+        </field>
+    </record>
+</odoo>

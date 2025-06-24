@@ -1,0 +1,51 @@
+<odoo>
+    <record id="view_facture_proforma_form" model="ir.ui.view">
+        <field name="name">facture.proforma.form</field>
+        <field name="model">gestion_comptable_sfec.facture_proforma</field>
+        <field name="arch" type="xml">
+            <form string="Facture Proforma" class="neumorphic">
+                <sheet>
+                    <group>
+                        <field name="commande_id" class="neumorphic-input"/>
+                        <field name="date_facture" class="neumorphic-input"/>
+                        <field name="etat_facture" class="neumorphic-input"/>
+                    </group>
+                    <notebook>
+                        <page string="Détails">
+                            <field name="ligne_facture_ids">
+                                <tree editable="bottom">
+                                    <field name="article_id"/>
+                                    <field name="quantite"/>
+                                    <field name="prix_unitaire"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_facture_proforma_tree" model="ir.ui.view">
+        <field name="name">facture.proforma.tree</field>
+        <field name="model">gestion_comptable_sfec.facture_proforma</field>
+        <field name="arch" type="xml">
+            <tree string="Factures proforma">
+                <field name="commande_id"/>
+                <field name="date_facture"/>
+                <field name="etat_facture"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_facture_proforma" model="ir.actions.act_window">
+        <field name="name">Factures Proforma</field>
+        <field name="res_model">gestion_comptable_sfec.facture_proforma</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_facture_proforma"
+              name="Factures Proforma"
+              parent="menu_custom_client_root"
+              action="action_facture_proforma"/>
+</odoo>

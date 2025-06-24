@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_form_livraison_article_fournisseur" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.livraison_article_fournisseur.form</field>
+        <field name="model">gestion_comptable_sfec.livraison_article_fournisseur</field>
+        <field name="arch" type="xml">
+            <form string="Livraison Fournisseur">
+                <sheet>
+                    <group>
+                        <field name="article_id"/>
+                        <field name="quantite_livree"/>
+                        <field name="bon_commande_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_livraison_article_fournisseur" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.livraison_article_fournisseur.tree</field>
+        <field name="model">gestion_comptable_sfec.livraison_article_fournisseur</field>
+        <field name="arch" type="xml">
+            <tree string="Livraisons Fournisseurs">
+                <field name="article_id"/>
+                <field name="quantite_livree"/>
+                <field name="bon_commande_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_livraison_article_fournisseur" model="ir.actions.act_window">
+        <field name="name">Livraisons Fournisseurs</field>
+        <field name="res_model">gestion_comptable_sfec.livraison_article_fournisseur</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_livraison_article_fournisseur"
+              name="Livraisons Fournisseurs"
+              parent="menu_custom_fournisseur"
+              action="action_livraison_article_fournisseur"
+              sequence="5"/>
+</odoo>

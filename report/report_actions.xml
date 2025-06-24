@@ -1,0 +1,19 @@
+<odoo>
+    <report 
+        id="action_report_paiement_client"
+        model="custom.accounting.paiement_client"
+        string="Imprimer Paiement Client"
+        report_type="qweb-pdf"
+        name="custom.accounting.report_paiement_client_template"
+        file="custom.accounting.report_paiement_client_template"
+        print_report_name="'Paiement_Client_' + object.client_id.name"/>
+
+    <report 
+        id="action_report_paiement_fournisseur"
+        model="custom.accounting.paiement_fournisseur"
+        string="Imprimer Paiement Fournisseur"
+        report_type="qweb-pdf"
+        name="custom.accounting.report_paiement_fournisseur_template"
+        file="custom.accounting.report_paiement_fournisseur_template"
+        print_report_name="'Paiement_Fournisseur_' + object.fournisseur_id.name"/>
+</odoo>

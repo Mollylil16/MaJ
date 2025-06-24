@@ -1,0 +1,50 @@
+<odoo>
+    <!-- FORM -->
+    <record id="view_form_entreprise" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.entreprise.form</field>
+        <field name="model">gestion_comptable_sfec.entreprise</field>
+        <field name="arch" type="xml">
+            <form string="Entreprise">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="adresse"/>
+                        <field name="contact"/>
+                        <field name="email"/>
+                    </group>
+                    <notebook>
+                        <page string="Clients associés">
+                            <field name="clients_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="email"/>
+                                    <field name="contact"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- TREE -->
+    <record id="view_tree_entreprise" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.entreprise.tree</field>
+        <field name="model">gestion_comptable_sfec.entreprise</field>
+        <field name="arch" type="xml">
+            <tree string="Entreprises">
+                <field name="name"/>
+                <field name="adresse"/>
+                <field name="contact"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ACTION -->
+    <record id="action_entreprise" model="ir.actions.act_window">
+        <field name="name">Entreprises</field>
+        <field name="res_model">gestion_comptable_sfec.entreprise</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

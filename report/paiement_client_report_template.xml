@@ -1,0 +1,16 @@
+<odoo>
+    <template id="report_paiement_client_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="paiement">
+                <div class="page">
+                    <h2>Paiement Reçu</h2>
+                    <p><strong>Client :</strong> <t t-esc="paiement.client_id.name"/></p>
+                    <p><strong>Date :</strong> <t t-esc="paiement.date_paiement"/></p>
+                    <p><strong>Montant :</strong> <t t-esc="paiement.montant"/> FCFA</p>
+                    <p><strong>Mode de paiement :</strong> <t t-esc="paiement.mode_paiement"/></p>
+                    <p><strong>Facture :</strong> <t t-esc="paiement.facture_id.name"/></p>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

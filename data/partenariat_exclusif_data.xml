@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Partenariats exclusifs par défaut -->
+    <record id="partenariat_spirax" model="gestion_comptable_sfec.partenariat_exclusif">
+        <field name="name">Partenariat SPIRAX SARCO</field>
+        <field name="type_partenariat">spirax</field>
+        <field name="date_debut">2025-01-01</field>
+        <field name="active" eval="True"/>
+        <field name="conditions">Conditions spécifiques pour les partenaires SPIRAX SARCO</field>
+    </record>
+
+    <record id="partenariat_approtech" model="gestion_comptable_sfec.partenariat_exclusif">
+        <field name="name">Partenariat APPROTECH</field>
+        <field name="type_partenariat">approtech</field>
+        <field name="date_debut">2025-01-01</field>
+        <field name="active" eval="True"/>
+        <field name="conditions">Conditions spécifiques pour les partenaires APPROTECH</field>
+    </record>
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Script de nettoyage des anciennes commandes -->
+    <record id="cleanup_old_commands" model="ir.cron">
+        <field name="name">Nettoyage des commandes annulées</field>
+        <field name="model_id" ref="model_gestion_comptable_sfec_bon_commande_client"/>
+        <field name="function">cleanup_old_commands</field>
+        <field name="args">[60]</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- Script de nettoyage des anciennes factures -->
+    <record id="cleanup_old_invoices" model="ir.cron">
+        <field name="name">Nettoyage des factures annulées</field>
+        <field name="model_id" ref="model_gestion_comptable_sfec_facture_finale"/>
+        <field name="function">cleanup_old_invoices</field>
+        <field name="args">[90]</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- Script de nettoyage des anciens paiements -->
+    <record id="cleanup_old_payments" model="ir.cron">
+        <field name="name">Nettoyage des paiements annulés</field>
+        <field name="model_id" ref="model_gestion_comptable_sfec_paiement_client"/>
+        <field name="function">cleanup_old_payments</field>
+        <field name="args">[180]</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- Script de vérification des stocks -->
+    <record id="check_stock_levels" model="ir.cron">
+        <field name="name">Vérification des niveaux de stock</field>
+        <field name="model_id" ref="model_gestion_comptable_sfec_stock_mouvement"/>
+        <field name="function">check_stock_levels</field>
+        <field name="args">[]</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>

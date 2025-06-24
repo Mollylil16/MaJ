@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="test_client_data" model="res.partner">
+        <field name="name">Client Test</field>
+        <field name="lcc_number">LCC-789456</field>
+        <field name="parent_id" ref="base.res_partner_1"/>
+        <field name="street">123 Rue Test</field>
+        <field name="phone">+123456789</field>
+        <field name="email">test@client.com</field>
+    </record>
+</odoo>

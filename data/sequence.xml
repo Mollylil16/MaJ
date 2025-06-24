@@ -1,0 +1,77 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Séquences pour les clients -->
+        <record id="seq_bon_commande_client" model="ir.sequence">
+            <field name="name">Bon de Commande Client</field>
+            <field name="code">gestion_comptable_sfec.bon_commande_client</field>
+            <field name="prefix">BCC/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+        </record>
+
+        <record id="seq_facture_proforma" model="ir.sequence">
+            <field name="name">Facture Proforma</field>
+            <field name="code">gestion_comptable_sfec.facture_proforma</field>
+            <field name="prefix">FPF/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+        </record>
+
+        <record id="seq_facture_finale" model="ir.sequence">
+            <field name="name">Facture Finale</field>
+            <field name="code">gestion_comptable_sfec.facture_finale</field>
+            <field name="prefix">FF/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+        </record>
+
+        <record id="seq_accuse_reception" model="ir.sequence">
+            <field name="name">Accusé de Réception</field>
+            <field name="code">gestion_comptable_sfec.accuse_reception</field>
+            <field name="prefix">AR/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+        </record>
+
+        <record id="seq_paiement_client" model="ir.sequence">
+            <field name="name">Paiement Client</field>
+            <field name="code">gestion_comptable_sfec.paiement_client</field>
+            <field name="prefix">PC/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+        </record>
+
+        <!-- Nouvelles séquences -->
+        <record id="seq_bon_commande_fournisseur" model="ir.sequence">
+            <field name="name">Bon de Commande Fournisseur</field>
+            <field name="code">gestion_comptable_sfec.bon_commande_fournisseur</field>
+            <field name="prefix">BCF/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+        </record>
+
+        <record id="seq_facture_fournisseur" model="ir.sequence">
+            <field name="name">Facture Fournisseur</field>
+            <field name="code">gestion_comptable_sfec.facture_fournisseur</field>
+            <field name="prefix">FFS/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+        </record>
+
+        <record id="seq_mouvement_stock" model="ir.sequence">
+            <field name="name">Mouvement de Stock</field>
+            <field name="code">gestion_comptable_sfec.stock_mouvement</field>
+            <field name="prefix">MS/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+        </record>
+
+        <record id="seq_paiement_fournisseur" model="ir.sequence">
+            <field name="name">Paiement Fournisseur</field>
+            <field name="code">gestion_comptable_sfec.paiement_fournisseur</field>
+            <field name="prefix">PF/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Template pour le rapport de trésorerie -->
+        <template id="tresorerie_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-12">
+                                <h2>Rapport de Trésorerie</h2>
+                                <p>Entreprise: <t t-esc="doc.company_id.name"/></p>
+                                <p>Période: <t t-esc="doc.date_debut"/> - <t t-esc="doc.date_fin"/></p>
+                            </div>
+                        </div>
+
+                        <!-- Récapitulatif des paiements clients -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h3>Paiements Clients</h3>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Client</th>
+                                            <th>Montant</th>
+                                            <th>État</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="doc.paiements_clients" t-as="paiement">
+                                            <tr>
+                                                <td><t t-esc="paiement.date_paiement"/></td>
+                                                <td><t t-esc="paiement.client_id.name"/></td>
+                                                <td><t t-esc="paiement.montant"/></td>
+                                                <td><t t-esc="paiement.state"/></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="2">Total</th>
+                                            <th><t t-esc="doc.total_paiements_clients"/></th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Récapitulatif des paiements fournisseurs -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h3>Paiements Fournisseurs</h3>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Fournisseur</th>
+                                            <th>Montant</th>
+                                            <th>État</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="doc.paiements_fournisseurs" t-as="paiement">
+                                            <tr>
+                                                <td><t t-esc="paiement.date_paiement"/></td>
+                                                <td><t t-esc="paiement.fournisseur_id.name"/></td>
+                                                <td><t t-esc="paiement.montant"/></td>
+                                                <td><t t-esc="paiement.state"/></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="2">Total</th>
+                                            <th><t t-esc="doc.total_paiements_fournisseurs"/></th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Récapitulatif final -->
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <h3>Récapitulatif</h3>
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th>Entrées (Paiements Clients)</th>
+                                            <td><t t-esc="doc.total_paiements_clients"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Sorties (Paiements Fournisseurs)</th>
+                                            <td><t t-esc="doc.total_paiements_fournisseurs"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Solde</th>
+                                            <td><t t-esc="doc.solde"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
