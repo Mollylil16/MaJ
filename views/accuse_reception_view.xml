@@ -36,8 +36,4 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_accuse_reception"
-              name="Accusés de Réception"
-              parent="gestion_comptable_sfec_root"
-              action="action_accuse_reception"/>
 </odoo>

@@ -10,7 +10,7 @@
                         <h2>Facture <field name="name" readonly="1"/></h2>
                         <div class="facture-status">
                             <span class="status-label">Statut :</span>
-                            <field name="etat" readonly="1" class="status-value"/>
+                            <field name="statut" readonly="1" class="status-value"/>
                             <field name="date_facture" readonly="1" class="status-date"/>
                         </div>
                     </div>
@@ -19,15 +19,15 @@
                         <field name="date_facture" class="neumorphic-input"/>
                         <field name="montant_total" class="neumorphic-input"/>
                         <field name="date_echeance" class="neumorphic-input"/>
-                        <field name="etat" class="neumorphic-input"/>
+                        <field name="statut" class="neumorphic-input"/>
                     </group>
                     <div class="neumorphic-footer">
                         <button name="action_valider" type="object" string="Valider" class="btn btn-primary"
-                                attrs="{'invisible': [('etat', '!=', 'brouillon')]}"/>
+                                attrs="{'invisible': [('statut', '!=', 'brouillon')]}"/>
                         <button name="action_imprimer" type="object" string="Imprimer" class="btn btn-secondary"/>
                         <button name="marquer_comme_payee" type="object" string="Marquer comme payée"
                                 class="btn-success"
-                                attrs="{'invisible': [('etat', '=', 'payee')]}"/>
+                                attrs="{'invisible': [('statut', '=', 'payee')]}"/>
                     </div>
                 </sheet>
             </form>
@@ -44,7 +44,7 @@
                 <field name="client_id"/>
                 <field name="date_facture"/>
                 <field name="montant_total"/>
-                <field name="etat"/>
+                <field name="statut"/>
             </tree>
         </field>
     </record>
@@ -57,11 +57,11 @@
             <search string="Recherche Factures Finales">
                 <field name="name"/>
                 <field name="client_id"/>
-                <field name="etat"/>
+                <field name="statut"/>
 
-                <filter name="filtre_en_attente" string="En attente" domain="[('etat','=','en_attente')]"/>
-                <filter name="filtre_payee" string="Payée" domain="[('etat','=','payee')]"/>
-                <filter name="filtre_partielle" string="Partiellement payée" domain="[('etat','=','partiellement_payee')]"/>
+                <filter name="filtre_en_attente" string="En attente" domain="[('statut','=','en_attente')]"/>
+                <filter name="filtre_payee" string="Payée" domain="[('statut','=','payee')]"/>
+                <filter name="filtre_partielle" string="Partiellement payée" domain="[('statut','=','partiellement_payee')]"/>
             </search>
         </field>
     </record>

@@ -41,8 +41,4 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_facture_proforma"
-              name="Factures Proforma"
-              parent="menu_custom_client_root"
-              action="action_facture_proforma"/>
 </odoo>
