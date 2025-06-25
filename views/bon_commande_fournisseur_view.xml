@@ -43,8 +43,8 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_bon_commande_fournisseur"
+    <!--menuitem id="menu_bon_commande_fournisseur"
               name="Commandes Fournisseurs"
               parent="menu_custom_fournisseur"
-              action="action_bon_commande_fournisseur"/>
+              action="action_bon_commande_fournisseur"/-->
 </odoo>

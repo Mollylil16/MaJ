@@ -107,7 +107,7 @@ odoo.define('gestion_comptable_sfec.drag_drop_widget', function (require) {
             notification.open();
         }
     }
-
+    DragDropWidget.template = 'gestion_comptable_sfec.DragDropWidget';
     core.action_registry.add('drag_drop_widget', DragDropWidget);
     return DragDropWidget;
 });

@@ -20,9 +20,9 @@
         <field name="target">new</field>
     </record>
 
-    <menuitem id="menu_statistique_paiement"
+    <!--menuitem id="menu_statistique_paiement"
               name="Rapports de Paiement"
               parent="gestion_comptable_sfec.menu_root"
               action="action_statistique_paiement"
-              sequence="100"/>
+              sequence="100"/-->
 </odoo>

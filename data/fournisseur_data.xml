@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Fournisseurs de test pour les partenariats exclusifs -->
+    
+    <record id="fournisseur_spirax" model="gestion_comptable_sfec.fournisseur">
+        <field name="name">SPIRAX SARCO</field>
+        <field name="email">contact@spirax.com</field>
+        <field name="contact">+2250101010101</field>
+        <field name="address">Abidjan, Zone industrielle</field>
+    </record>
+
+    <record id="fournisseur_approtech" model="gestion_comptable_sfec.fournisseur">
+        <field name="name">APPROTECH</field>
+        <field name="email">info@approtech.ci</field>
+        <field name="contact">+2250202020202</field>
+        <field name="address">Bouaké, Quartier industriel</field>
+    </record>
+</odoo>

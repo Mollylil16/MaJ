@@ -41,8 +41,8 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_custom_article"
+    <!--menuitem id="menu_custom_article"
               name="Articles"
               parent="menu_custom_stock"
-              action="action_article"/>
+              action="action_article"/-->
 </odoo>

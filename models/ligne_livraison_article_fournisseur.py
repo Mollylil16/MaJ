@@ -1,12 +1,12 @@
 from odoo import models, fields, api
 
 class LigneLivraisonArticleFournisseur(models.Model):
-    _name = 'custom.accounting.livraison_article_fournisseur'
+    _name ='gestion_comptable_sfec.livraison_article_fournisseur'
     _description = "Lignes de livraison fournisseur"
 
-    article_id = fields.Many2one('custom.accounting.article', string="Article", required=True)
+    article_id = fields.Many2one('estion_comptable_sfec.article', string="Article", required=True)
     quantite_livree = fields.Float(string="Quantité livrée", required=True)
-    bon_commande_id = fields.Many2one('custom.accounting.bon_commande_fournisseur', string="Bon de commande lié")
+    bon_commande_id = fields.Many2one('estion_comptable_sfec.bon_commande_fournisseur', string="Bon de commande lié")
 
     @api.model
     def create(self, vals):

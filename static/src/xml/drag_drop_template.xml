@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="gestion_comptable_sfec.DragDropWidget">
+        <div class="drop-zone">
+            <div class="drop-zone-content">
+                <i class="fa fa-cloud-upload" aria-hidden="true"/>
+                <p><t t-esc="_t('Déposer les fichiers ici ou cliquer pour sélectionner')"/></p>
+                <input type="file" class="drop-zone-input" multiple="multiple"/>
+            </div>
+        </div>
+    </t>
+</templates>

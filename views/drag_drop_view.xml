@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Assets pour le drag & drop -->
-    <template id="assets_drag_drop" name="Gestion Comptable SFEC Drag & Drop Assets" inherit_id="web.assets_backend">
-        <xpath expr="." position="inside">
-            <!-- Styles CSS -->
-            <link rel="stylesheet" href="/gestion_comptable_sfec/static/src/css/drag_drop.css"/>
-            
-            <!-- Scripts JavaScript -->
-            <script type="text/javascript" src="/gestion_comptable_sfec/static/src/js/drag_drop_widget.js"/>
-        </xpath>
-    </template>
-
-    <!-- Template pour la zone de dépose -->
+    
     <template id="drag_drop_template">
         <div class="drop-zone">
             <div class="drop-zone-content">
@@ -21,36 +10,4 @@
             </div>
         </div>
     </template>
-
-    <!-- Vue pour l'import de données -->
-    <record id="view_import_data" model="ir.ui.view">
-        <field name="name">gestion_comptable_sfec.import_data</field>
-        <field name="model">gestion_comptable_sfec.import_data</field>
-        <field name="arch" type="xml">
-            <form string="Import de Données">
-                <sheet>
-                    <group>
-                        <field name="file" widget="binary" filename="filename"/>
-                        <field name="filename"/>
-                        <field name="import_type"/>
-                    </group>
-                </sheet>
-                <footer>
-                    <button name="import" string="Importer" type="object" class="btn-primary"/>
-                    <button string="Annuler" class="btn-secondary" special="cancel"/>
-                </footer>
-            </form>
-        </field>
-    </record>
-
-    <!-- Action pour l'import -->
-    <record id="action_import_data" model="ir.actions.act_window">
-        <field name="name">Import de Données</field>
-        <field name="res_model">gestion_comptable_sfec.import_data</field>
-        <field name="view_mode">form</field>
-        <field name="target">new</field>
-    </record>
-
-    <!-- Menu pour l'import -->
-   
 </odoo>

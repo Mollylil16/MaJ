@@ -33,6 +33,7 @@ Module Odoo personnalisé pour gérer :
         'report_xlsx',
         'web_tour',
         'base_import',
+        'web',
     ],
     'assets': {
         'web.assets_backend': [
@@ -63,25 +64,26 @@ Module Odoo personnalisé pour gérer :
     'views/paiement_client_view.xml',
     'views/dashboard_template.xml',
     'views/drag_drop_view.xml',
-    'views/menu.xml',
-    # Vues
-    
-    'views/partenariat_exclusif_view.xml',
-    'views/ligne_commande_client_view.xml',
-    'views/ligne_facture_proforma_view.xml',
-    'views/facture_finale_view.xml',
-    'views/fournisseur_view.xml',
+    'views/fournisseur_views.xml',
     'views/bon_commande_fournisseur_view.xml',
     'views/facture_fournisseur_view.xml',
     'views/paiement_fournisseur_view.xml',
-    'views/ligne_livraison_article_fournisseur_view.xml',
+    'views/partenariat_exclusif_view.xml',
+    'views/reception_fournisseur_view.xml',
     'views/article_view.xml',
     'views/stock_mouvement_view.xml',
-    
     'views/report_views.xml',
+    'views/facture_finale_view.xml',
     'views/statistique_paiement_view.xml',
+    'views/menu.xml',
+    # Vues
+    'views/ligne_commande_client_view.xml',
+    'views/ligne_facture_proforma_view.xml',
+    'views/ligne_livraison_article_fournisseur_view.xml',
+    
 
     # Données
+    'data/fournisseur_data.xml',
     'data/partenariat_exclusif_data.xml',
     'data/workflow_data.xml',
     'data/states_data.xml',

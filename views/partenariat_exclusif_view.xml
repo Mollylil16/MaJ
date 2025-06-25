@@ -58,10 +58,10 @@
     </record>
 
     <!-- Menu unique propre et lié à l'action -->
-    <menuitem id="menu_partenariat_exclusif_root"
+    <!--menuitem id="menu_partenariat_exclusif_root"
               name="Partenariats Exclusifs"
               parent="menu_gestion_comptable_root"
               action="action_partenariat_exclusif"
-              sequence="10"/>
+              sequence="10"/-->
 
 </odoo>

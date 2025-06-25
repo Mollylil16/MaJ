@@ -38,9 +38,9 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_reception_fournisseur"
+    <!--menuitem id="menu_reception_fournisseur"
               name="Réceptions"
               parent="menu_custom_fournisseur"
               action="action_reception_fournisseur"
-              sequence="9"/>
+              sequence="9"/-->
 </odoo>

@@ -36,9 +36,9 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_stock_mouvement"
+    <!--menuitem id="menu_stock_mouvement"
               name="Mouvements de stock"
               parent="menu_custom_article"
               action="action_stock_mouvement"
-              sequence="15"/>
+              sequence="15"/-->
 </odoo>

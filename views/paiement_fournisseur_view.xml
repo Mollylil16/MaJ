@@ -36,9 +36,9 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_paiement_fournisseur"
+    <!--menuitem id="menu_paiement_fournisseur"
               name="Paiements Fournisseurs"
               parent="menu_custom_fournisseur"
               action="action_paiement_fournisseur"
-              sequence="7"/>
+              sequence="7"/-->
 </odoo>
