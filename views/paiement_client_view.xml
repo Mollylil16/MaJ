@@ -38,9 +38,4 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="menu_paiement_client"
-              name="Paiements Clients"
-              parent="menu_gestion_comptable_root"
-              action="action_paiement_client"
-              sequence="6"/>
 </odoo>

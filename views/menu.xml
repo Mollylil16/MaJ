@@ -1,6 +1,7 @@
 <odoo>
     <!-- MENU PRINCIPAL -->
-    <menuitem id="menu_gestion_comptable_root" name="Gestion Comptable" sequence="1" groups="gestion_comptable_sfec.group_comptable,gestion_comptable_sfec.group_manager"/>
+    <menuitem id="menu_gestion_comptable_root" name="Gestion Comptable" sequence="1"
+              groups="gestion_comptable_sfec.group_comptable,gestion_comptable_sfec.group_manager"/>
 
     <!-- 1. MENU CLIENT -->
     <menuitem id="menu_custom_client_root" name="Clients" parent="menu_gestion_comptable_root" sequence="10"/>
@@ -11,7 +12,23 @@
     <menuitem id="menu_accuse_reception" name="Accusés de réception" parent="menu_custom_client_root" action="action_accuse_reception"/>
     <menuitem id="menu_facture_finale" name="Factures finales" parent="menu_custom_client_root" action="action_facture_finale"/>
     <menuitem id="menu_paiement_client" name="Paiements reçus" parent="menu_custom_client_root" action="action_paiement_client"/>
-    <menuitem id="menu_dashboard_client" name="Tableau de bord" parent="menu_custom_client_root" action="action_dashboard_client" sequence="60"/>
+    
+
+    <record id="action_dashboard_web" model="ir.actions.act_url">
+        <field name="name">Dashboard Web</field>
+        <field name="url">/gestion_comptable_sfec/dashboard</field>
+        <field name="target">self</field>
+    </record>
+
+    <!-- ✅ NOUVEL ACCÈS TABLEAU DE BORD WEB -->
+    <menuitem id="menu_dashboard_web_url"
+              name="Tableau de bord (Vue Web)"
+              parent="menu_custom_client_root"
+              action="action_dashboard_web"
+              sequence="80"/>
+
+    
+
     <menuitem id="menu_drag_drop_client" name="Glisser-Déposer" parent="menu_custom_client_root" action="action_drag_drop_client" sequence="70"/>
 
     <!-- 2. MENU FOURNISSEUR -->

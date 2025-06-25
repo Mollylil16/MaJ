@@ -19,6 +19,9 @@ Module Odoo personnalisé pour gérer :
     'application': True,
     'installable': True,
     'auto_install': False,
+    'controllers': [
+    'gestion_comptable_sfec.controllers.dashboard_controller',
+],
     'depends': [
         'sale',
         'purchase',
@@ -57,14 +60,16 @@ Module Odoo personnalisé pour gérer :
     'views/facture_proforma_view.xml',
     'views/accuse_reception_view.xml',
     'views/facture_finale_view.xml',
+    'views/paiement_client_view.xml',
+    'views/dashboard_template.xml',
+    'views/drag_drop_view.xml',
     'views/menu.xml',
     # Vues
-    'views/dashboard_view.xml',
+    
     'views/partenariat_exclusif_view.xml',
     'views/ligne_commande_client_view.xml',
     'views/ligne_facture_proforma_view.xml',
     'views/facture_finale_view.xml',
-    'views/paiement_client_view.xml',
     'views/fournisseur_view.xml',
     'views/bon_commande_fournisseur_view.xml',
     'views/facture_fournisseur_view.xml',
@@ -72,7 +77,7 @@ Module Odoo personnalisé pour gérer :
     'views/ligne_livraison_article_fournisseur_view.xml',
     'views/article_view.xml',
     'views/stock_mouvement_view.xml',
-    'views/drag_drop_view.xml',
+    
     'views/report_views.xml',
     'views/statistique_paiement_view.xml',
 

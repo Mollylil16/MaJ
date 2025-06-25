@@ -52,11 +52,5 @@
     </record>
 
     <!-- Menu pour l'import -->
-    <menuitem
-        id="menu_import_data"
-        name="Import de Données"
-        parent="gestion_comptable_sfec.menu_root"
-        action="action_import_data"
-        sequence="100"
-    />
+   
 </odoo>

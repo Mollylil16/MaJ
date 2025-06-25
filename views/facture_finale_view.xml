@@ -23,11 +23,10 @@
                     </group>
                     <div class="neumorphic-footer">
                         <button name="action_valider" type="object" string="Valider" class="btn btn-primary"
-                                attrs="{'invisible': [('statut', '!=', 'brouillon')]}"/>
-                        <button name="action_imprimer" type="object" string="Imprimer" class="btn btn-secondary"/>
-                        <button name="marquer_comme_payee" type="object" string="Marquer comme payée"
-                                class="btn-success"
-                                attrs="{'invisible': [('statut', '=', 'payee')]}"/>
+                           if="statut == 'brouillon'"/>
+                            <button name="action_imprimer" type="object" string="Imprimer" class="btn btn-secondary"/>
+                            <button name="marquer_comme_payee" type="object" string="Marquer comme payée"
+                                class="btn-success" if="statut != 'payee'"/>
                     </div>
                 </sheet>
             </form>
@@ -74,9 +73,4 @@
         <field name="search_view_id" ref="view_search_facture_finale"/>
     </record>
 
-    <!-- MENU -->
-    <menuitem id="menu_facture_finale"
-              name="Factures Finales"
-              parent="menu_custom_client_root"
-              action="action_facture_finale"/>
 </odoo>
