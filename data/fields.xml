@@ -1,0 +1,8 @@
+<!--odoo>
+    <record id="field_bon_commande_client_etat_commande" model="ir.model.fields">
+        <field name="name">etat_commande</field>
+        <field name="model_id" ref="gestion_comptable_sfec.model_gestion_comptable_sfec_bon_commande_client"/>
+        <field name="ttype">selection</field>
+        <field name="state">manual</field>
+    </record>
+</odoo>

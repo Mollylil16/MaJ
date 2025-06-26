@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_tresorerie_report_form" model="ir.ui.view">
+        <field name="name">gestion_comptable_sfec.tresorerie.report.form</field>
+        <field name="model">gestion_comptable_sfec.tresorerie.report</field>
+        <field name="arch" type="xml">
+            <form string="Rapport de Trésorerie">
+                <group>
+                    <field name="date_debut"/>
+                    <field name="date_fin"/>
+                </group>
+                <!--footer>
+                    <button string="Afficher le rapport" type="object" name="action_afficher_rapport" class="btn-primary"/>
+                    <button string="Fermer" class="btn-secondary" special="cancel"/>
+                </footer-->
+            </form>
+        </field>
+    </record>
+</odoo>

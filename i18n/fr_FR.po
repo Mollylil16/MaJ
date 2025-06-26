@@ -15,42 +15,52 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#. module: gestion_comptable_sfec
 #: model:gestion_comptable_sfec.partenariat,name
 msgid "Partenariat"
 msgstr "Partenariat"
 
+#. module: gestion_comptable_sfec
 #: model:gestion_comptable_sfec.facture_finale,name
 msgid "Facture Finale"
 msgstr "Facture Finale"
 
+#. module: gestion_comptable_sfec
 #: model:gestion_comptable_sfec.facture_finale,statut
 msgid "En Attente"
 msgstr "En Attente"
 
+#. module: gestion_comptable_sfec
 #: model:gestion_comptable_sfec.facture_finale,statut
 msgid "Validée"
 msgstr "Validée"
 
+#. module: gestion_comptable_sfec
 #: model:gestion_comptable_sfec.facture_finale,statut
 msgid "Payée"
 msgstr "Payée"
 
+#. module: gestion_comptable_sfec
 #: model:gestion_comptable_sfec.partenariat,type_partenariat
 msgid "SPIRAX SARCO"
 msgstr "SPIRAX SARCO"
 
+#. module: gestion_comptable_sfec
 #: model:gestion_comptable_sfec.partenariat,type_partenariat
 msgid "APPROTECH"
 msgstr "APPROTECH"
 
+#. module: gestion_comptable_sfec
 #: model:gestion_comptable_sfec.facture_finale,action_export_csv
 msgid "Exporter en CSV"
 msgstr "Exporter en CSV"
 
+#. module: gestion_comptable_sfec
 #: model:gestion_comptable_sfec.facture_finale,action_export_excel
 msgid "Exporter en Excel"
 msgstr "Exporter en Excel"
 
+#. module: gestion_comptable_sfec
 #: model:gestion_comptable_sfec.facture_finale,action_drag_drop
 msgid "Déposer ici"
 msgstr "Déposer ici"

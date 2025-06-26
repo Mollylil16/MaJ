@@ -85,17 +85,19 @@ Module Odoo personnalisé pour gérer :
     # Données
     'data/fournisseur_data.xml',
     'data/partenariat_exclusif_data.xml',
-    'data/workflow_data.xml',
-    'data/states_data.xml',
+    #'data/workflow_data.xml',
+    #'data/fields.xml',
+    #'data/states_data.xml',
     'data/mail_template_data.xml',
     'data/sequence.xml',
-    'data/indexes.xml',
-    'data/constraints.xml',
-    'data/sfec_specifics.xml',
-    'data/deployment_procedures.xml',
-    'data/import_data.xml',
+    #'data/indexes.xml',
+    #'data/constraints.xml',
+    #'data/sfec_specifics.xml',
+    #'data/deployment_procedures.xml',
+    #'data/import_data.xml',
 
     # Rapports
+    'views/tresorerie_report_view.xml',
     'report/tresorerie_report.xml',
     'report/templates/tresorerie_report_template.xml',
     'report/report_templates.xml',
@@ -104,10 +106,10 @@ Module Odoo personnalisé pour gérer :
     'report/facture_finale_report_template.xml',
     'report/paiement_client_report.xml',
     'report/paiement_client_report_template.xml',
-    'reports/report_facture.py',
+    #'reports/report_facture.py',
 
     # Tours
-    'tours/accounting_tour.py',
+    #'tours/accounting_tour.py',
 ],
 
 

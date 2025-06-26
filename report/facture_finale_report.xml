@@ -1,11 +1,11 @@
 <odoo>
     <report
         id="report_facture_finale"
-        model="custom.accounting.facture_finale"
+        model="gestion_comptable_sfec.facture_finale"
         string="Imprimer Facture Finale"
         report_type="qweb-pdf"
-        name="custom.accounting_system.report_facture_finale_template"
-        file="custom.accounting_system.report_facture_finale_template"
+        name="gestion_comptable_sfec_system.report_facture_finale_template"
+        file="gestion_comptable_sfec_system.report_facture_finale_template"
         print_report_name="'Facture_%s' % (object.name)"
     />
 </odoo>
