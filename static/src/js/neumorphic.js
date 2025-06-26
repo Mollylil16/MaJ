@@ -1,63 +1,58 @@
-odoo.define('gestion_comptable_sfec.neumorphic', function (require) {
-    "use strict";
+/** @odoo-module **/
 
-    const core = require('web.core');
-    const Widget = require('web.Widget');
+import { Widget } from "@web/core/widget";
+import { registry } from "@web/core/registry";
 
-    class NeumorphicWidget extends Widget {
-        constructor(parent, options) {
-            super(parent, options);
-            this.setupAnimations();
-        }
-
-        setupAnimations() {
-            // Animation des statistiques
-            $('.stat-number').each(function() {
-                const $this = $(this);
-                const finalValue = parseInt($this.text());
-                $this.prop('Counter', 0).animate({
-                    Counter: finalValue
-                }, {
-                    duration: 2000,
-                    easing: 'swing',
-                    step: function(now) {
-                        $this.text(Math.ceil(now));
-                    }
-                });
-            });
-
-            // Animation des cartes
-            $('.neumorphic-card').each(function(i) {
-                setTimeout(() => {
-                    $(this).addClass('animated fadeInUp');
-                }, i * 200);
-            });
-
-            // Hover effect sur les boutons
-            $('.neumorphic-btn').on('mouseenter', function() {
-                $(this).addClass('hovered');
-            }).on('mouseleave', function() {
-                $(this).removeClass('hovered');
-            });
-        }
-
-        // Effet de pulsation pour les notifications importantes
-        addPulseEffect(element, duration = 1000) {
-            element.style.animation = `pulse ${duration}ms ease-in-out infinite`;
-        }
-
-        // Animation douce pour les changements de statut
-        addStatusChangeAnimation(element, newStatus) {
-            const animation = newStatus === 'success' ? 'success' : 'error';
-            element.classList.add(`status-${animation}`);
-            setTimeout(() => {
-                element.classList.remove(`status-${animation}`);
-            }, 1000);
-        }
+export class NeumorphicWidget extends Widget {
+    setup() {
+        super.setup();
+        this.setupAnimations();
     }
 
-    // Enregistrement du widget
-    core.action_registry.add('neumorphic_dashboard', NeumorphicWidget);
+    setupAnimations() {
+        document.querySelectorAll(".stat-number").forEach((el) => {
+            const finalValue = parseInt(el.textContent);
+            let counter = 0;
+            const duration = 2000;
+            const steps = 60;
+            const stepTime = duration / steps;
+            const increment = finalValue / steps;
 
-    return NeumorphicWidget;
-});
+            const interval = setInterval(() => {
+                counter += increment;
+                if (counter >= finalValue) {
+                    el.textContent = finalValue;
+                    clearInterval(interval);
+                } else {
+                    el.textContent = Math.ceil(counter);
+                }
+            }, stepTime);
+        });
+
+        document.querySelectorAll(".neumorphic-card").forEach((card, i) => {
+            setTimeout(() => {
+                card.classList.add("animated", "fadeInUp");
+            }, i * 200);
+        });
+
+        document.querySelectorAll(".neumorphic-btn").forEach((btn) => {
+            btn.addEventListener("mouseenter", () => btn.classList.add("hovered"));
+            btn.addEventListener("mouseleave", () => btn.classList.remove("hovered"));
+        });
+    }
+
+    addPulseEffect(element, duration = 1000) {
+        element.style.animation = `pulse ${duration}ms ease-in-out infinite`;
+    }
+
+    addStatusChangeAnimation(element, newStatus) {
+        const animation = newStatus === "success" ? "success" : "error";
+        element.classList.add(`status-${animation}`);
+        setTimeout(() => {
+            element.classList.remove(`status-${animation}`);
+        }, 1000);
+    }
+}
+
+// Enregistrer l’action
+registry.category("actions").add("neumorphic_dashboard", NeumorphicWidget);

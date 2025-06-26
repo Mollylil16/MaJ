@@ -34,24 +34,28 @@ Module Odoo personnalisé pour gérer :
         'web_tour',
         'base_import',
         'web',
+        'custom_design',
     ],
     'assets': {
         'web.assets_backend': [
+            'gestion_comptable_sfec/static/src/js/neumorphic.js',
             'gestion_comptable_sfec/static/src/css/neumorphic.css',
             'gestion_comptable_sfec/static/src/css/form_styles.css',
             'gestion_comptable_sfec/static/src/css/drag_drop.css',
             'gestion_comptable_sfec/static/src/css/custom_tags.css',
-            'gestion_comptable_sfec/static/src/js/neumorphic.js',
             'gestion_comptable_sfec/static/src/js/form_interactions.js',
             'gestion_comptable_sfec/static/src/js/drag_drop_widget.js',
             'gestion_comptable_sfec/static/src/js/advanced_filters.js',
+            
         ],
         'web.assets_qweb': [
             'gestion_comptable_sfec/static/src/xml/drag_drop_template.xml',
-        ]
+            'gestion_comptable_sfec/static/src/xml/custom_tags_template.xml',
+        ],
+
+
     },
     'data': [
-    # Sécurité
     'security/groups.xml',
     'security/ir.model.access.csv',
 
@@ -60,7 +64,7 @@ Module Odoo personnalisé pour gérer :
     'views/bon_commande_client_view.xml',
     'views/facture_proforma_view.xml',
     'views/accuse_reception_view.xml',
-    'views/facture_finale_view.xml',
+    #'views/facture_finale_view.xml',
     'views/paiement_client_view.xml',
     'views/dashboard_template.xml',
     'views/drag_drop_view.xml',
