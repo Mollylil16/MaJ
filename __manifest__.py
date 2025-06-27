@@ -34,27 +34,28 @@ Module Odoo personnalisé pour gérer :
         'web_tour',
         'base_import',
         'web',
-        'custom_design',
+        #'custom_design',
     ],
-    'assets': {
-        'web.assets_backend': [
-            'gestion_comptable_sfec/static/src/js/neumorphic.js',
-            'gestion_comptable_sfec/static/src/css/neumorphic.css',
-            'gestion_comptable_sfec/static/src/css/form_styles.css',
-            'gestion_comptable_sfec/static/src/css/drag_drop.css',
-            'gestion_comptable_sfec/static/src/css/custom_tags.css',
-            'gestion_comptable_sfec/static/src/js/form_interactions.js',
-            'gestion_comptable_sfec/static/src/js/drag_drop_widget.js',
-            'gestion_comptable_sfec/static/src/js/advanced_filters.js',
-            
-        ],
-        'web.assets_qweb': [
-            'gestion_comptable_sfec/static/src/xml/drag_drop_template.xml',
-            'gestion_comptable_sfec/static/src/xml/custom_tags_template.xml',
-        ],
+    #'assets': {
+        #'web.assets_backend': [
+        #'gestion_comptable_sfec/static/src/js/drag_drop_widget.js',
+        #'gestion_comptable_sfec/static/src/js/advanced_filters.js',
+        #'gestion_comptable_sfec/static/src/js/form_interactions.js',
+        #'gestion_comptable_sfec/static/src/js/neuromorphic.js',
+    #],
+    #'web.assets_qweb': [
+        #'gestion_comptable_sfec/static/src/xml/drag_drop_template.xml',
+        #'gestion_comptable_sfec/static/src/xml/custom_tags_template.xml',
+    #],
+    #'web.assets_common': [
+        #'gestion_comptable_sfec/static/src/css/drag_drop.css',
+        #'gestion_comptable_sfec/static/src/css/custom_tags.css',
+        #'gestion_comptable_sfec/static/src/css/form_styles.css',
+        #'gestion_comptable_sfec/static/src/css/neuromorphic.css',
+    #],
 
 
-    },
+    #},
     'data': [
     'security/groups.xml',
     'security/ir.model.access.csv',
@@ -80,6 +81,8 @@ Module Odoo personnalisé pour gérer :
     'views/facture_finale_view.xml',
     'views/statistique_paiement_view.xml',
     'views/menu.xml',
+    'views/actions.xml',
+    
     # Vues
     'views/ligne_commande_client_view.xml',
     'views/ligne_facture_proforma_view.xml',
@@ -117,7 +120,5 @@ Module Odoo personnalisé pour gérer :
 ],
 
 
-    'images': [
-        'static/description/icon.png'
-    ],
+    'icon': 'gestion_comptable_sfec/static/description/icon.jpg',
 }

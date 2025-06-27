@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<templates>
-    <t t-name="CustomTagsWidget">
-        <div class="o_custom_tags_widget">
-            <!-- Le contenu sera rempli dynamiquement par le JavaScript -->
-        </div>
-    </t>
-</templates>
